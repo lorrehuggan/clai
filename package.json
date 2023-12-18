@@ -6,23 +6,40 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:automigrate": "tsx src/lib/db/migrate.ts",
+    "db:generate": "drizzle-kit generate:pg --config=drizzle.config.ts",
+    "db:introspect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@auth/core": "^0.18.6",
+    "@auth/drizzle-adapter": "^0.3.11",
+    "@t3-oss/env-nextjs": "^0.7.1",
+    "@tanstack/react-query": "^5.14.1",
+    "dotenv": "^16.3.1",
     "drizzle-orm": "^0.29.1",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
+    "pg": "^8.11.3",
     "postgres": "^3.4.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sonner": "^1.2.4",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.14.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "drizzle-kit": "^0.20.6",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tsx": "^4.6.2",
     "typescript": "^5"
   }
 }
