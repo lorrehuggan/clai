@@ -1,5 +1,5 @@
 Under Construction...
 
-### Clai 
+### Lapis
 
 Ai Enhanced Zettlekasten Notation App

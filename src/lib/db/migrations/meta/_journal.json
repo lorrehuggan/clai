@@ -8,6 +8,20 @@
       "when": 1702857823723,
       "tag": "0000_tricky_masque",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1702943019366,
+      "tag": "0001_lethal_bloodaxe",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1702944071315,
+      "tag": "0002_abnormal_rhodey",
+      "breakpoints": true
     }
   ]
 }

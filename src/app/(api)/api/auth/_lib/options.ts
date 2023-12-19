@@ -17,12 +17,12 @@ export const authOptions: NextAuthOptions = {
       session.user.id = user.id;
       return session;
     },
-    async jwt({ token, account, user }) {
-      return {
-        token,
-        account,
-        user,
-      };
-    },
+    // async jwt({ token, account, user }) {
+    //   return {
+    //     token,
+    //     account,
+    //     user,
+    //   };
+    // },
   },
 };

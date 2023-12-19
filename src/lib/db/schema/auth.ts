@@ -5,15 +5,27 @@ import {
   primaryKey,
   text,
   timestamp,
+  uniqueIndex,
 } from 'drizzle-orm/pg-core';
+import { createSelectSchema } from 'drizzle-zod';
+import { z } from 'zod';
 
-export const users = pgTable('user', {
-  id: text('id').notNull().primaryKey(),
-  name: text('name'),
-  email: text('email').notNull(),
-  emailVerified: timestamp('emailVerified', { mode: 'date' }),
-  image: text('image'),
-});
+export const users = pgTable(
+  'user',
+  {
+    id: text('id').notNull().primaryKey(),
+    name: text('name'),
+    email: text('email').notNull().unique(),
+    emailVerified: timestamp('emailVerified', { mode: 'date' }),
+    image: text('image'),
+  },
+  (user) => ({
+    index: uniqueIndex().on(user.email),
+  })
+);
+
+export const insertUserSchema = createSelectSchema(users);
+export type User = z.infer<typeof insertUserSchema>;
 
 export const accounts = pgTable(
   'account',
