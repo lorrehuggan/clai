@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Providers from './providers';
+import Providers from '~/lib/hooks/providers';
+
+import './_css/pre.css';
+import './_css/root.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Clai By Clay',
+  title: 'Lapis By Clai',
   description: 'Ai Enhanced Zettelkasten Notation App',
 };
 
@@ -17,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

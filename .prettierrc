@@ -7,5 +7,7 @@
     "prettier-plugin-organize-imports"
   ],
   "endOfLine": "auto",
-  "organizeImportsSkipDestructiveCodeActions": true
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "printWidth": 80,
+  "proseWrap": "preserve"
 }
