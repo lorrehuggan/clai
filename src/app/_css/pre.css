@@ -251,6 +251,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
+  all: unset;
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
