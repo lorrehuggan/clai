@@ -4,7 +4,8 @@
   "semi": true,
   "singleQuote": true,
   "plugins": [
-    "prettier-plugin-organize-imports"
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-organize-attributes"
   ],
   "endOfLine": "auto",
   "organizeImportsSkipDestructiveCodeActions": true,

@@ -1,5 +1,5 @@
 {
-  "id": "33b16f0b-e44e-4d7c-8aae-c10569f0b6a5",
+  "id": "287e3f97-6abb-4102-ad6e-d4efc53f69c4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -332,7 +332,7 @@
         },
         "status": {
           "name": "status",
-          "type": "status",
+          "type": "status_type",
           "primaryKey": false,
           "notNull": true,
           "default": "'draft'"
@@ -648,15 +648,135 @@
           ]
         }
       }
+    },
+    "tuner": {
+      "name": "tuner",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "tuner": {
+          "name": "tuner",
+          "type": "tuner_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tuner_attribute": {
+      "name": "tuner_attribute",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "tuner_id": {
+          "name": "tuner_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "tuner_attribute_tuner_id_tuner_id_fk": {
+          "name": "tuner_attribute_tuner_id_tuner_id_fk",
+          "tableFrom": "tuner_attribute",
+          "tableTo": "tuner",
+          "columnsFrom": [
+            "tuner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {
-    "status": {
-      "name": "status",
+    "status_type": {
+      "name": "status_type",
       "values": {
         "draft": "draft",
         "published": "published",
         "archived": "archived"
+      }
+    },
+    "tuner_type": {
+      "name": "tuner_type",
+      "values": {
+        "idea": "idea",
+        "tone": "tone",
+        "summary": "summary",
+        "concept": "concept",
+        "language": "language",
+        "brainstorm": "brainstorm",
+        "reference": "reference",
+        "mindmap": "mindmap",
+        "citation": "citation",
+        "connection": "connection",
+        "mood": "mood",
+        "voice": "voice",
+        "culture": "culture",
+        "data": "data",
+        "creativewriting": "creativewriting"
       }
     }
   },

@@ -1,11 +1,9 @@
-import Heading from '~/components/heading';
-import ThemeSwitcher from '~/components/themeSwitcher';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      <ThemeSwitcher />
-      <Heading />
+      <Link href="/app">Go Home</Link>
     </>
   );
 }

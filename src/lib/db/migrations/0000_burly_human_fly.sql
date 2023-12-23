@@ -1,5 +1,11 @@
 DO $$ BEGIN
- CREATE TYPE "status" AS ENUM('draft', 'published', 'archived');
+ CREATE TYPE "status_type" AS ENUM('draft', 'published', 'archived');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "tuner_type" AS ENUM('idea', 'tone', 'summary', 'concept', 'language', 'brainstorm', 'reference', 'mindmap', 'citation', 'connection', 'mood', 'voice', 'culture', 'data', 'creativewriting');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -56,7 +62,7 @@ CREATE TABLE IF NOT EXISTS "document" (
 	"folder_id" text,
 	"created_at" timestamp NOT NULL,
 	"updated_at" timestamp NOT NULL,
-	"status" "status" DEFAULT 'draft' NOT NULL,
+	"status" "status_type" DEFAULT 'draft' NOT NULL,
 	"meta" json,
 	"user_id" text NOT NULL
 );
@@ -94,6 +100,23 @@ CREATE TABLE IF NOT EXISTS "tag" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	CONSTRAINT "tag_name_unique" UNIQUE("name")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "tuner" (
+	"id" text PRIMARY KEY NOT NULL,
+	"tuner" "tuner_type" NOT NULL,
+	"description" text,
+	"created_at" timestamp NOT NULL,
+	"updated_at" timestamp NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "tuner_attribute" (
+	"id" text PRIMARY KEY NOT NULL,
+	"tuner_id" text NOT NULL,
+	"name" text NOT NULL,
+	"description" text,
+	"created_at" timestamp NOT NULL,
+	"updated_at" timestamp NOT NULL
 );
 --> statement-breakpoint
 CREATE UNIQUE INDEX IF NOT EXISTS "user_email_index" ON "user" ("email");--> statement-breakpoint
@@ -165,6 +188,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "folders" ADD CONSTRAINT "folders_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "user"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "tuner_attribute" ADD CONSTRAINT "tuner_attribute_tuner_id_tuner_id_fk" FOREIGN KEY ("tuner_id") REFERENCES "tuner"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

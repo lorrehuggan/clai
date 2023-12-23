@@ -2,14 +2,20 @@
 @import '@radix-ui/colors/indigo-dark.css';
 @import '@radix-ui/colors/slate.css';
 @import '@radix-ui/colors/slate-dark.css';
+@import '@radix-ui/colors/violet.css';
+@import '@radix-ui/colors/violet-dark.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/blue-dark.css';
 
 :root {
-  --color-bg: var(--slate-12);
+  --color-bg: hsl(0, 0%, 5%);
   --color-fg: var(--slate-1);
 
   --color-muted: var(--slate-11);
 
   --color-primary: var(--indigo-9);
+  --color-secondary: var(--indigo-9);
+  --color-tertiary: var(--blue-11);
 
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
@@ -47,7 +53,7 @@
 
 [data-theme='dark'] {
   --color-bg: var(--slate-dark-12);
-  --color-fg: var(--slate-dark-1);
+  --color-fg: var(--slate--dark-1);
 }
 
 body {

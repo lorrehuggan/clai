@@ -10,7 +10,11 @@ import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 import { users } from './auth';
 
-export const statusEnum = pgEnum('status', ['draft', 'published', 'archived']);
+export const statusEnum = pgEnum('status_type', [
+  'draft',
+  'published',
+  'archived',
+]);
 
 export const document = pgTable('document', {
   id: text('id').notNull().primaryKey(),

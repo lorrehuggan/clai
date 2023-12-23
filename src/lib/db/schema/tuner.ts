@@ -2,7 +2,7 @@ import { pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
-export const tunerEnum = pgEnum('tuner', [
+export const tunerEnum = pgEnum('tuner_type', [
   'idea',
   'tone',
   'summary',
