@@ -1,8 +1,9 @@
 .heading {
   display: flex;
   align-items: center;
+  height: var(--space-xl);
+  border-bottom: 1px solid var(--color-muted);
   justify-content: space-between;
-  padding: var(--space-sm);
 
   &__auth {
     display: flex;

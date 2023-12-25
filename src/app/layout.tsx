@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
-import Providers from '~/lib/hooks/providers';
+import Providers from '~/components/hooks/providers';
 
 import './_css/pre.css';
 import './_css/root.css';

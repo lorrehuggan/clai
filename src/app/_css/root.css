@@ -8,10 +8,13 @@
 @import '@radix-ui/colors/blue-dark.css';
 
 :root {
-  --color-bg: hsl(0, 0%, 5%);
-  --color-fg: var(--slate-1);
+  --color-bg: hsl(0, 0%, 4%);
+  --color-fg: var(--slate-6);
 
-  --color-muted: var(--slate-11);
+  --color-muted: hsl(0, 0%, 16%);
+  --color-muted-dark: hsl(0, 0%, 8%);
+  --color-muted-darker: hsl(0, 0%, 6%);
+  --color-muted-light: hsl(0, 0%, 64%);
 
   --color-primary: var(--indigo-9);
   --color-secondary: var(--indigo-9);
@@ -54,6 +57,11 @@
 [data-theme='dark'] {
   --color-bg: var(--slate-dark-12);
   --color-fg: var(--slate--dark-1);
+
+  --color-muted: hsl(0, 0%, 84%);
+  --color-muted-dark: hsl(0, 0%, 68%);
+  --color-muted-darker: hsl(0, 0%, 64%);
+  --color-muted-darker: hsl(0, 0%, 94%);
 }
 
 body {
