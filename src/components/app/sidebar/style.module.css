@@ -6,10 +6,6 @@
   container-type: inline-size;
   border-right: 1px solid var(--color-muted);
 
-  &:hover {
-    width: 150px;
-  }
-
   &[data-open='true'] {
     width: 150px;
   }

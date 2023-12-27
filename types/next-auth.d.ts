@@ -13,8 +13,6 @@ declare module 'next-auth' {
       email: string;
       image: string;
     };
-    accessToken?: string;
-    error?: string;
   }
   interface Account extends NextAuthAccount {
     expires_at: number;

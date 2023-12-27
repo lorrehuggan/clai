@@ -68,3 +68,13 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
 }
+
+.tiptap {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}

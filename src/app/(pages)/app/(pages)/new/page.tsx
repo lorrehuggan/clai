@@ -1,7 +1,11 @@
+import EditorProvider from '~/components/hooks/useEditor';
+
+import style from './page.module.css';
+
 export default function Page() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>New</h1>
-    </div>
+    <article className={style.article}>
+      <EditorProvider children={null} />
+    </article>
   );
 }

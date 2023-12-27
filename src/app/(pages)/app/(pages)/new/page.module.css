@@ -1,0 +1,63 @@
+.article {
+  width: 90%;
+  max-width: 765px;
+  margin: var(--space-lg) auto;
+
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  & h1 {
+    font-size: var(--font-6xl);
+  }
+
+  & h2 {
+    font-size: var(--font-5xl);
+  }
+
+  & h3 {
+    font-size: var(--font-4xl);
+  }
+
+  & h4 {
+    font-size: var(--font-3xl);
+  }
+
+  & h5 {
+    font-size: var(--font-2xl);
+  }
+
+  & h6 {
+    font-size: var(--font-xl);
+  }
+
+  & p {
+    color: var(--color-muted-light);
+  }
+
+  & span {
+    &[data-type='zettelkasten-link'] {
+      color: var(--color-primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  & pre {
+    background-color: var(--color-muted);
+    border-radius: var(--border-radius-xs);
+    padding: var(--space-sm);
+    margin: var(--space-sm) 0;
+  }
+
+  & a {
+    color: var(--color-primary);
+  }
+}

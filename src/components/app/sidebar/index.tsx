@@ -1,6 +1,7 @@
 'use client';
 import {
   ArrowLeftToLine,
+  Bot,
   FolderOpen,
   Home,
   Plus,
@@ -44,19 +45,14 @@ export default function Sidebar() {
     },
   ];
   return (
-    <aside
-      onMouseOver={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      data-open={open}
-      className={style.sidebar}
-    >
+    <aside data-open={open} className={style.sidebar}>
       <div className={style.sidebar__heading}>
         <span
           data-open={open}
           onClick={toggleSidebar}
           className={style.sidebar__heading_logo}
         >
-          <Sticker size={20} strokeWidth={1.5} />
+          <Bot size={20} strokeWidth={1.5} />
         </span>
         {open && (
           <span
