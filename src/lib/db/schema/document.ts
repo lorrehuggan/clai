@@ -19,8 +19,8 @@ export const statusEnum = pgEnum('status_type', [
 export const document = pgTable('document', {
   id: text('id').notNull().primaryKey(),
   title: text('title').notNull(),
-  body: json('body').notNull(),
-  tags: json('tags'),
+  content: json('content').notNull(),
+  tags: text('tags').array(),
   folderId: text('folder_id').references(() => folder.id),
   createdAt: timestamp('created_at', { mode: 'date' }).notNull(),
   updatedAt: timestamp('updated_at', { mode: 'date' }).notNull(),
@@ -33,7 +33,7 @@ export const document = pgTable('document', {
 
 export const insertDocumentSchema = createInsertSchema(document);
 export const selectDocumentSchema = createSelectSchema(document);
-export type Document = z.infer<typeof insertDocumentSchema>;
+export type Document = z.infer<typeof selectDocumentSchema>;
 
 export const documentReference = pgTable('document_reference', {
   id: text('id').notNull().primaryKey(),

@@ -1,0 +1,1 @@
+ALTER TABLE "document" ALTER COLUMN "tags" SET DATA TYPE text[];

@@ -1,11 +1,9 @@
-import EditorProvider from '~/components/hooks/useEditor';
-
-import style from './page.module.css';
+import Editor from '~/components/app/editor';
 
 export default function Page() {
   return (
-    <article className={style.article}>
-      <EditorProvider children={null} />
-    </article>
+    <>
+      <Editor />
+    </>
   );
 }

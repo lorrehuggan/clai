@@ -12,6 +12,7 @@
     font-weight: 900;
     line-height: 1;
     margin-bottom: var(--space-sm);
+    letter-spacing: -0.025em;
   }
 
   & h1 {
