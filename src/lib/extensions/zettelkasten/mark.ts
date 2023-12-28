@@ -1,60 +1,40 @@
-import { InputRule, Mark, Node, PasteRule, markInputRule } from '@tiptap/core';
+import { Mark, markInputRule, markPasteRule } from '@tiptap/core';
 
-export const zettelkastenInputRegex = /(\[\[([^\]]+)\]\])/g;
-export const zettelkastenPasteRegex = /(\[\[([^\]]+)\]\])/g;
-export const dollakastenInputRegex = /(\$\$([^\]]+)\$\$)/g;
-export const dollakastenPasteRegex = /(\$\$([^\]]+)\$\$)/g;
+const inputRegex = /(\[\[([^\]]+)\]\])/;
 
-const ZettelkastenMark = Mark.create({
+const ZettelkastenExtension = Mark.create({
   name: 'zettelkasten',
-
-  addOptions() {
-    return {
-      HTMLAttributes: {},
-    };
-  },
-
-  parseHTML() {
-    return [
-      {
-        tag: 'span[data-type="zettelkasten-link"]',
-      },
-    ];
-  },
-
-  renderHTML({ HTMLAttributes }) {
-    return ['span', { ...HTMLAttributes, 'data-type': 'zettelkasten-link' }];
-  },
 
   addInputRules() {
     return [
-      new InputRule({
-        find: /\[\[([^\]]+)\]\]/,
-        handler: ({ state, match, range, commands }) => {
-          const [fullMatch, content] = match;
-          const { tr, schema } = state;
-          const zettelNode = schema.nodes.zettelkastenLink.create(
-            {},
-            schema.text(content)
-          );
-
-          // Replace only the matched text
-          tr.replaceWith(range.from, range.from + fullMatch.length, zettelNode);
-        },
+      markInputRule({
+        find: inputRegex,
+        type: this.type,
       }),
     ];
   },
 
   addPasteRules() {
     return [
-      new PasteRule({
-        find: zettelkastenPasteRegex,
-        handler: ({ state, match, range }) => {
-          console.log({ state, match, range });
-        },
+      markPasteRule({
+        find: inputRegex,
+        type: this.type,
       }),
+    ];
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return ['span', { ...HTMLAttributes, 'data-type': 'zettelkasten-link' }, 0];
+  },
+
+  parseHTML() {
+    return [
+      {
+        tag: 'span[data-type="zettelkasten-link"]',
+        mark: this.name,
+      },
     ];
   },
 });
 
-export default ZettelkastenMark;
+export default ZettelkastenExtension;

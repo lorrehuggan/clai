@@ -4,9 +4,8 @@ import StarterKit from '@tiptap/starter-kit';
 import { revalidatePath } from 'next/cache';
 import { useState } from 'react';
 import ZettelkastenMark from '~/lib/extensions/zettelkasten/mark';
-import ZettelkastenNode from '~/lib/extensions/zettelkasten/node';
 
-const extensions = [StarterKit, ZettelkastenNode, ZettelkastenMark];
+const extensions = [StarterKit, ZettelkastenMark];
 
 export default function UseEditor() {
   const [editable, setEditable] = useState(true);
@@ -19,6 +18,7 @@ export default function UseEditor() {
     autofocus: true,
     onUpdate: ({ editor }) => {
       setContent(editor.getHTML());
+      console.log(editor.getJSON());
     },
   });
 
