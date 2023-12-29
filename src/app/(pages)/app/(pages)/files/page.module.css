@@ -1,0 +1,8 @@
+.page {
+  padding: var(--space-md);
+
+  & h1 {
+    font-size: var(--font-6xl);
+    font-weight: 900;
+  }
+}

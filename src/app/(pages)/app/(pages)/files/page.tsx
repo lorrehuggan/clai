@@ -1,9 +1,11 @@
 import Documents from '~/components/app/documents';
 
+import style from './page.module.css';
+
 export default async function Page() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Files</h1>
+    <div className={style.page}>
+      <h1>My Documents</h1>
       <Documents />
     </div>
   );

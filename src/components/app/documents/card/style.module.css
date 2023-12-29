@@ -1,0 +1,31 @@
+.card {
+  width: 280px;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-muted-dark);
+  padding: var(--space-sm);
+  /* outline: 1px solid var(--color-primary); */
+
+  & h5 {
+    font-size: var(--font-sm);
+    font-weight: 900;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+
+    & button {
+      padding: var(--space-xs);
+      background-color: var(--color-muted);
+      border-radius: var(--border-radius-xs);
+      transition: background-color 0.2s ease-out-circ;
+
+      &:hover {
+        background-color: var(--color-muted-light);
+        color: var(--color-bg);
+      }
+    }
+  }
+}

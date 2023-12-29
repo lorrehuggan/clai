@@ -5,7 +5,7 @@ import { uuid } from 'uuidv4';
 import db from '~/lib/db/client';
 import { document } from '~/lib/db/schema/document';
 import { tipTapNodeSchema } from '~/types/editor';
-import { authOptions } from '../../auth/_lib/options';
+import { authOptions } from '../../../auth/_lib/options';
 
 export async function post(req: Request, res: Response) {
   const session = await getServerSession(authOptions);

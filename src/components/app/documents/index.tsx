@@ -1,7 +1,16 @@
 'use client';
-import { useAllDocuments } from '~/lib/services/documents/client/getAll';
+import { allDocuments } from '~/lib/services/documents/client';
+import Card from './card';
+
+import style from './style.module.css';
 
 export default function Documents() {
-  const { data, isLoading, isError } = useAllDocuments();
-  return <div>{data?.map((doc) => <div>{doc.id}</div>)}</div>;
+  const { data, isLoading, isError } = allDocuments();
+  return (
+    <>
+      <div className={style.cards}>
+        {data?.map((doc) => <Card doc={doc} />)}
+      </div>
+    </>
+  );
 }
