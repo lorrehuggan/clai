@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1703200246020,
-      "tag": "0000_burly_human_fly",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1703713858915,
-      "tag": "0001_magical_doctor_faustus",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1703714405301,
-      "tag": "0002_lethal_mother_askani",
+      "when": 1703800566574,
+      "tag": "0000_chubby_jasper_sitwell",
       "breakpoints": true
     }
   ]

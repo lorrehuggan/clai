@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS "attachment" (
 CREATE TABLE IF NOT EXISTS "document" (
 	"id" text PRIMARY KEY NOT NULL,
 	"title" text NOT NULL,
-	"body" json NOT NULL,
-	"tags" json,
+	"content" json NOT NULL,
+	"tags" text[],
 	"folder_id" text,
 	"created_at" timestamp NOT NULL,
 	"updated_at" timestamp NOT NULL,

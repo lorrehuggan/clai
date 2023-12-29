@@ -2,6 +2,6 @@ Under Construction...
 
 ### Lapis
 
-By Clai
+By Cla
 
 Ai Enhanced Zettlekasten Notation App

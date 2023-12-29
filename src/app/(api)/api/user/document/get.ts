@@ -15,11 +15,7 @@ export async function get(req: Request) {
     });
   }
 
-  console.log(session);
+  const result = await db.select().from(document);
 
-  const data = await db.select().from(document);
-
-  return NextResponse.json({
-    data,
-  });
+  return NextResponse.json([...result]);
 }
