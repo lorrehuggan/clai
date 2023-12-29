@@ -27,6 +27,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      padding-left: var(--space-xs);
 
       &:hover svg {
         color: var(--color-primary);
@@ -38,6 +39,7 @@
 
       &[data-open='false'] {
         width: 100%;
+        padding-left: 0;
       }
     }
 
