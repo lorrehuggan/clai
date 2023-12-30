@@ -2,6 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  gap: var(--space-md);
+  gap: var(--space-lg);
+  margin-top: var(--space-bs);
+}
+
+.null {
+  margin-top: var(--space-bs);
+}
+
+.loading {
   margin-top: var(--space-bs);
 }

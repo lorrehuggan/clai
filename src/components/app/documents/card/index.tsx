@@ -17,14 +17,18 @@ export default function Card({ doc }: Props) {
   return (
     <div className={style.card}>
       <h5>{doc.title}</h5>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab
+        asperiores reprehenderit hic eligendi, voluptatibus a ut rerum. Corrupti
+      </p>
       <div className={style.card__actions}>
-        <button onClick={deleteDoc}>
+        <button data-delete="true" onClick={deleteDoc}>
           <Trash2 strokeWidth={1.5} size={18} />
         </button>
-        <button>
+        <button data-favourite={true}>
           <Star strokeWidth={1.5} size={18} />
         </button>
-        <button>
+        <button data-archive="true">
           <Package strokeWidth={1.5} size={18} />
         </button>
       </div>

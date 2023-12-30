@@ -1,6 +1,4 @@
-import { remove } from './_handlers/delete';
-import { get } from './_handlers/get';
-import { post } from './_handlers/post';
+import { get, post, remove } from './_handlers';
 
 export async function POST(req: Request, res: Response) {
   return post(req, res);

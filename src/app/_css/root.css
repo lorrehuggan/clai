@@ -6,6 +6,8 @@
 @import '@radix-ui/colors/violet-dark.css';
 @import '@radix-ui/colors/blue.css';
 @import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/amber.css';
+@import '@radix-ui/colors/red.css';
 
 :root {
   --color-bg: hsl(0, 0%, 4%);
@@ -54,15 +56,15 @@
   --border-radius-xl: 2rem;
 }
 
-[data-theme='dark'] {
-  --color-bg: var(--slate-dark-12);
-  --color-fg: var(--slate--dark-1);
-
-  --color-muted: hsl(0, 0%, 84%);
-  --color-muted-dark: hsl(0, 0%, 68%);
-  --color-muted-darker: hsl(0, 0%, 64%);
-  --color-muted-darker: hsl(0, 0%, 94%);
-}
+/* [data-theme='dark'] { */
+/*   --color-bg: var(--slate-dark-12); */
+/*   --color-fg: var(--slate--dark-1); */
+/**/
+/*   --color-muted: hsl(0, 0%, 74%); */
+/*   --color-muted-dark: hsl(0, 0%, 48%); */
+/*   --color-muted-darker: hsl(0, 0%, 24%); */
+/*   --color-muted-darker: hsl(0, 0%, 14%); */
+/* } */
 
 body {
   background-color: var(--color-bg);
@@ -73,6 +75,42 @@ body {
   &:focus-visible {
     outline: none;
   }
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
+}
+
+[data-type='zettlekasten-link'] {
+  color: red !important;
 }
 
 [data-type='zettlekasten-link'] {

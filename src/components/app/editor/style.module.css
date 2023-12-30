@@ -1,6 +1,6 @@
 .article {
   width: 90%;
-  max-width: 765px;
+  max-width: 640px;
   margin: var(--space-lg) auto;
 
   & h1,

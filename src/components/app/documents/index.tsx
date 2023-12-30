@@ -8,8 +8,19 @@ export default function Documents() {
   const { data, isLoading, isError } = allDocuments();
   return (
     <>
+      {isLoading && (
+        <div className={style.loading}>
+          <p>Loading...</p>
+        </div>
+      )}
+      {!data?.length && !isLoading && (
+        <div className={style.null}>
+          <p>No Documents</p>
+          <button>Add Document</button>
+        </div>
+      )}
       <div className={style.cards}>
-        {data?.map((doc) => <Card doc={doc} />)}
+        {data && data?.map((doc) => <Card doc={doc} />)}
       </div>
     </>
   );

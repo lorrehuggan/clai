@@ -80,15 +80,14 @@
     }
 
     & li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--space-xs) var(--space-xs);
-      cursor: pointer;
-      border-radius: var(--border-radius-xs);
+      & a {
+        color: var(--color-muted-light);
+        padding: var(--space-xs);
+      }
 
       &[data-active='true'] {
-        background-color: var(--color-muted-darker);
+        border-radius: var(--border-radius-xs);
+        background-color: var(--color-muted-dark);
 
         & a {
           color: var(--color-primary);

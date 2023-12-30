@@ -4,6 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import { revalidatePath } from 'next/cache';
 import { useState } from 'react';
 import ZettelkastenMark from '~/lib/extensions/zettelkasten/mark';
+import ZettelkastenSuggestion from '~/lib/extensions/zettelkasten/suggetion';
 
 const extensions = [StarterKit, ZettelkastenMark];
 
@@ -18,7 +19,6 @@ export default function UseEditor() {
     autofocus: true,
     onUpdate: ({ editor }) => {
       setContent(editor.getHTML());
-      console.log(editor.getJSON());
     },
   });
 

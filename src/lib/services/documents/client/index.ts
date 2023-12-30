@@ -28,5 +28,25 @@ export const deleteDocument = (id: Document['id']) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['document', 'all'] });
     },
+    onMutate: async () => {
+      await queryClient.cancelQueries({ queryKey: ['document', 'all'] });
+      const previousValue = queryClient.getQueryData<Document[]>([
+        'document',
+        'all',
+      ]);
+      queryClient.setQueryData<Document[]>(['document', 'all'], (old) => {
+        return old?.filter((doc) => doc.id !== id) ?? [];
+      });
+      return { previousValue };
+    },
+    onError: (err, variables, context) => {
+      queryClient.setQueryData<Document[]>(
+        ['document', 'all'],
+        context?.previousValue
+      );
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ['document', 'all'] });
+    },
   });
 };
