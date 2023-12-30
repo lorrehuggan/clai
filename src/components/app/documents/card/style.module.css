@@ -1,6 +1,6 @@
 .card {
   width: 280px;
-  background-color: var(--color-muted-dark);
+  background-color: hsl(0, 0%, 5%);
   padding: var(--space-sm);
   position: relative;
   border-radius: 11px;
@@ -14,44 +14,52 @@
     border-radius: 12px;
     top: 0;
     left: 0;
-    background-image: conic-gradient(
-      from 0deg at 50% 50%,
-      var(--color-muted) 10%,
-      var(--color-muted-light) 25%,
-      var(--color-muted) 30%,
-      var(--color-muted) 50%,
-      hsl(0, 0%, 12%) 85%,
-      var(--color-muted) 95%,
-      var(--color-muted) 100%
-    );
+    background-image: conic-gradient(from 0deg at 50% 50%,
+        var(--color-muted) 10%,
+        var(--color-primary) 25%,
+        var(--color-muted) 30%,
+        var(--color-muted) 50%,
+        hsl(0, 0%, 12%) 85%,
+        var(--color-muted) 95%,
+        var(--color-muted) 100%);
     z-index: -1;
   }
 
   & h5 {
     font-size: var(--font-sm);
-    font-weight: 900;
+    font-weight: 700;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
 
   & p {
     font-size: var(--font-sm);
     color: var(--color-muted-light);
     margin-top: var(--space-sm);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   &__actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: var(--space-xs);
-    margin-top: var(--space-md);
+    margin-top: var(--space-sm);
+    width: 100%;
 
     & button {
-      padding: var(--space-xs);
-      background-color: var(--color-muted);
+      padding: var(--space-2xs);
+      /* background-color: var(--color-muted); */
       border-radius: var(--border-radius-xs);
-      transition: background-color 0.2s ease-out-circ;
+      transition: all var(--ease-time) var(--ease);
 
       &[data-favourite='true'] {
-        color: var(--amber-9);
+        /* color: var(--amber-9); */
 
         &:hover {
           background-color: var(--amber-9);
@@ -60,7 +68,7 @@
       }
 
       &[data-delete='true'] {
-        color: var(--red-9);
+        /* color: var(--red-9); */
 
         &:hover {
           background-color: var(--red-9);

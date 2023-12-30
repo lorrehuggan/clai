@@ -54,6 +54,9 @@
   --border-radius-md: 1rem;
   --border-radius-lg: 1.5rem;
   --border-radius-xl: 2rem;
+
+  --ease: ease-out-cubic;
+  --ease-time: 0.3s;
 }
 
 /* [data-theme='dark'] { */

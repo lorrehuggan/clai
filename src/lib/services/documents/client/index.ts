@@ -3,9 +3,9 @@ import { Document } from '~/lib/db/schema/document';
 
 export const allDocuments = () => {
   return useQuery<Document[]>({
-    queryKey: ['document', 'all'],
+    queryKey: ['documents', 'all'],
     queryFn: async () => {
-      const result = await fetch('/api/user/document');
+      const result = await fetch('/api/user/documents');
       return result.json();
     },
     refetchOnWindowFocus: false,

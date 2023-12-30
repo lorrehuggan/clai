@@ -1,8 +1,8 @@
 .sidebar {
-  width: 48px;
+  width: 54px;
   height: 100%;
   padding: 0 var(--space-xs);
-  transition: width 0.15s ease-out-circ;
+  transition: width 0.3s var(--ease);
   container-type: inline-size;
   border-right: 1px solid var(--color-muted);
 
@@ -18,7 +18,8 @@
     height: var(--space-xl);
 
     &[data-open='false'] {
-      justify-content: center;
+      /* width: 100%; */
+      padding-left: 0;
     }
 
     &_logo {
@@ -34,17 +35,12 @@
       }
 
       & svg {
-        transition: all 0.3s ease-out-circ;
-      }
-
-      &[data-open='false'] {
-        width: 100%;
-        padding-left: 0;
+        transition: all var(--ease-time) var(--ease);
       }
     }
 
     &_toggle {
-      transition: transform 0.3s ease-out-circ;
+      transition: transform var(--ease-time) var(--ease);
       cursor: pointer;
       color: var(--color-muted-light);
       display: flex;
@@ -60,7 +56,7 @@
       }
 
       & svg {
-        transition: all 0.3s ease-out-circ;
+        transition: all var(--ease-time) var(--ease);
       }
     }
   }
@@ -75,11 +71,13 @@
       justify-content: center;
 
       &[data-open='false'] {
-        align-items: center;
+        /* align-items: center; */
       }
     }
 
     & li {
+      transition: all var(--ease-time) var(--ease);
+
       & a {
         color: var(--color-muted-light);
         padding: var(--space-xs);
@@ -100,6 +98,7 @@
 
       &:hover {
         background-color: var(--color-muted-darker);
+        border-radius: var(--border-radius-xs);
       }
 
       & a {
@@ -107,7 +106,7 @@
         align-items: center;
         gap: var(--space-xs);
         cursor: pointer;
-        transition: color 0.3s ease-out-circ;
+        transition: color var(--ease-time) var(--ease);
         font-size: var(--font-xs);
         text-transform: capitalize;
 
@@ -129,7 +128,7 @@
         height: 10px;
         background-color: var(--color-primary);
         border-radius: 9999px;
-        transition: opacity 0.2s ease-out-circ;
+        transition: opacity var(--ease-time) var(--ease);
 
         @container (max-width: 80px) {
           display: none;
