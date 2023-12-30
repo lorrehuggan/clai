@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
+import Tip from '~/components/global/tip';
 import style from './style.module.css';
 
 export default function Sidebar() {
@@ -70,12 +71,14 @@ export default function Sidebar() {
       <nav className={style.sidebar__list}>
         <ul data-open={open}>
           {menuItems.map((item) => (
-            <li data-active={item.link === pathname} key={item.name}>
-              <Link href={item.link}>
-                {item.icon}
-                {open && <span>{item.name}</span>}
-              </Link>
-            </li>
+            <Tip key={item.name} side="right" content={item.name}>
+              <li data-active={item.link === pathname} key={item.name}>
+                <Link href={item.link}>
+                  {item.icon}
+                  {open && <span>{item.name}</span>}
+                </Link>
+              </li>
+            </Tip>
           ))}
         </ul>
       </nav>

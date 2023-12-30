@@ -1,6 +1,11 @@
+import * as AlertDialog from '@radix-ui/react-alert-dialog';
+import { useQueryClient } from '@tanstack/react-query';
 import { Package, Star, Trash2 } from 'lucide-react';
+import Dialog from '~/components/global/alertDialog';
+import Tip from '~/components/global/tip';
 import { Document } from '~/lib/db/schema/document';
 import { deleteDocument } from '~/lib/services/documents/client';
+
 import style from './style.module.css';
 
 type Props = {
@@ -9,10 +14,12 @@ type Props = {
 
 export default function Card({ doc }: Props) {
   const { mutateAsync } = deleteDocument(doc.id);
+  const queryClient = useQueryClient();
 
-  const deleteDoc = async () => {
+  async function deleteDoc() {
+    console.log('delete');
     await mutateAsync();
-  };
+  }
 
   return (
     <div className={style.card}>
@@ -22,15 +29,27 @@ export default function Card({ doc }: Props) {
         asperiores reprehenderit hic eligendi, voluptatibus a ut rerum. Corrupti
       </p>
       <div className={style.card__actions}>
-        <button data-delete="true" onClick={deleteDoc}>
-          <Trash2 strokeWidth={1.5} size={18} />
-        </button>
-        <button data-favourite={true}>
-          <Star strokeWidth={1.5} size={18} />
-        </button>
-        <button data-archive="true">
-          <Package strokeWidth={1.5} size={18} />
-        </button>
+        <Tip content="Delete">
+          <Dialog
+            action={deleteDoc}
+            title="Are you absolutly sure?"
+            description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+          >
+            <button data-delete="true">
+              <Trash2 strokeWidth={1.5} size={18} />
+            </button>
+          </Dialog>
+        </Tip>
+        <Tip content="Favourite">
+          <button data-favourite={true}>
+            <Star strokeWidth={1.5} size={18} />
+          </button>
+        </Tip>
+        <Tip content="Archive">
+          <button data-archive="true">
+            <Package strokeWidth={1.5} size={18} />
+          </button>
+        </Tip>
       </div>
     </div>
   );

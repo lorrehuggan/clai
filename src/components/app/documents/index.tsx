@@ -20,7 +20,7 @@ export default function Documents() {
         </div>
       )}
       <div className={style.cards}>
-        {data && data?.map((doc) => <Card doc={doc} />)}
+        {data && data?.map((doc) => <Card key={doc.id} doc={doc} />)}
       </div>
     </>
   );
