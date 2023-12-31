@@ -6,7 +6,7 @@
   line-height: 1;
   color: var(--color-fg);
   background-color: var(--color-muted-dark);
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-muted-light);
   user-select: none;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);

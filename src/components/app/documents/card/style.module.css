@@ -18,8 +18,10 @@
         var(--color-muted) 10%,
         var(--color-primary) 25%,
         var(--color-muted) 30%,
-        var(--color-muted) 50%,
-        hsl(0, 0%, 12%) 85%,
+        var(--color-muted) 45%,
+        var(--color-primary) 60%,
+        var(--indigo-8) 70%,
+        hsl(0, 0%, 6%) 80%,
         var(--color-muted) 95%,
         var(--color-muted) 100%);
     z-index: -1;
