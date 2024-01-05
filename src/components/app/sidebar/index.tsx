@@ -9,7 +9,7 @@ import {
   Sticker,
 } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import Tip from '~/components/global/tip';
@@ -18,6 +18,7 @@ import style from './style.module.css';
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   function toggleSidebar() {
     setOpen(!open);
@@ -72,7 +73,13 @@ export default function Sidebar() {
         <ul data-open={open}>
           {menuItems.map((item) => (
             <Tip key={item.name} side="right" content={item.name}>
-              <li data-active={item.link === pathname} key={item.name}>
+              <li
+                onClick={() => {
+                  item.name === 'new' ? router.refresh() : null;
+                }}
+                data-active={item.link === pathname}
+                key={item.name}
+              >
                 <Link href={item.link}>
                   {item.icon}
                   {open && <span>{item.name}</span>}

@@ -1,0 +1,31 @@
+.tools {
+  width: 90%;
+  max-width: 640px;
+  margin: var(--space-xs) auto;
+  margin-top: var(--space-lg);
+
+  &__root {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: var(--border-radius-xs);
+    background-color: var(--color-muted-dark);
+    padding: var(--space-xs);
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  &__item {
+    padding: var(--space-xs);
+    border-radius: var(--border-radius-xs);
+
+    &[data-state='on'] {
+      background-color: var(--indigo-5);
+      color: var(--indigo-12);
+    }
+  }
+}

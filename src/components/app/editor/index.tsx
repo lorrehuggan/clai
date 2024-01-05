@@ -3,15 +3,18 @@ import { EditorContent } from '@tiptap/react';
 import UseEditor from '~/components/hooks/useEditor';
 
 import style from './style.module.css';
+import Toolbar from './toolbar';
 
 function Editor() {
-  const { editor, save } = UseEditor();
+  const { editor } = UseEditor();
 
   return (
-    <article className={style.article}>
-      <button onClick={() => save(editor?.getJSON())}>Save</button>
-      <EditorContent editor={editor} />
-    </article>
+    <>
+      <Toolbar />
+      <article className={style.article}>
+        <EditorContent editor={editor} />
+      </article>
+    </>
   );
 }
 

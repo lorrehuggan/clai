@@ -1,6 +1,6 @@
 import { Mark, markInputRule, markPasteRule } from '@tiptap/core';
 
-const inputRegex = /(\[\[([^\]]+)\]\])/;
+const inputRegex = /(\[\[([^\]]+)\]\])/g;
 
 const ZettelkastenExtension = Mark.create({
   name: 'zettelkasten',

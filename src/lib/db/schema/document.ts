@@ -33,7 +33,12 @@ export const document = pgTable('document', {
 
 export const insertDocumentSchema = createInsertSchema(document);
 export const selectDocumentSchema = createSelectSchema(document);
-export type Document = z.infer<typeof selectDocumentSchema>;
+type D = z.infer<typeof selectDocumentSchema>;
+export type Document = Omit<D, 'content' | 'meta' | 'tags'> & {
+  content: string;
+  meta: string;
+  tags: string[] | null;
+};
 
 export const documentReference = pgTable('document_reference', {
   id: text('id').notNull().primaryKey(),

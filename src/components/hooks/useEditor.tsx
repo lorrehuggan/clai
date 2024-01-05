@@ -1,12 +1,24 @@
 'use client';
+import Blockquote from '@tiptap/extension-blockquote';
+import BulletList from '@tiptap/extension-bullet-list';
+import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
+import ListItem from '@tiptap/extension-list-item';
 import { JSONContent, generateHTML, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { revalidatePath } from 'next/cache';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import ZettelkastenMark from '~/lib/extensions/zettelkasten/mark';
-import ZettelkastenSuggestion from '~/lib/extensions/zettelkasten/suggetion';
 
-const extensions = [StarterKit, ZettelkastenMark];
+const extensions = [
+  StarterKit,
+  ZettelkastenMark,
+  BulletList,
+  ListItem,
+  Link,
+  Blockquote,
+  Image,
+];
 
 export default function UseEditor() {
   const [editable, setEditable] = useState(true);
@@ -21,9 +33,9 @@ export default function UseEditor() {
     <li>energy</li>
     <li>new</li>
 </ul>
-<img src="https://placeimg.com/983/139/any" alt="Random Image">
 <a href="https://www.johnson.com/">Career measure Democrat star Mrs admit.</a>
 <blockquote>Skill under decade wear voice that.</blockquote>
+<img src="https://images.pexels.com/photos/19541342/pexels-photo-19541342/free-photo-of-geometric-modern-house.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
 `);
 
   const editor = useEditor({
@@ -36,7 +48,7 @@ export default function UseEditor() {
     },
   });
 
-  async function save(content: JSONContent | undefined) {
+  const save = useCallback(async (content: JSONContent | undefined) => {
     if (!content) return;
 
     try {
@@ -54,16 +66,38 @@ export default function UseEditor() {
     } catch (error) {
       console.error(error);
     }
-  }
+  }, []);
 
-  async function clear() {
+  const clear = useCallback(() => {
     if (!editor) return;
-    editor.commands.clearContent();
-  }
+    editor.chain().focus().clearContent().run();
+  }, []);
+
+  const setLink = useCallback(() => {
+    if (!editor) return;
+    const previousUrl = editor.getAttributes('link').href;
+    const url = window.prompt('URL', previousUrl);
+
+    // cancelled
+    if (url === null) {
+      return;
+    }
+
+    // empty
+    if (url === '') {
+      editor.chain().focus().extendMarkRange('link').unsetLink().run();
+
+      return;
+    }
+
+    // update link
+    editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+  }, [editor]);
 
   return {
     editor,
     save,
     clear,
+    setLink,
   };
 }

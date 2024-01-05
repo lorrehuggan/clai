@@ -8,18 +8,20 @@
 @import '@radix-ui/colors/blue-dark.css';
 @import '@radix-ui/colors/amber.css';
 @import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/pink.css';
 
 :root {
-  --color-bg: hsl(0, 0%, 4%);
-  --color-fg: var(--slate-6);
+  --color-bg: hsl(200, 8%, 4%);
+  --color-fg: hsl(0, 0%, 84%);
 
   --color-muted: hsl(0, 0%, 16%);
   --color-muted-dark: hsl(0, 0%, 8%);
   --color-muted-darker: hsl(0, 0%, 6%);
-  --color-muted-light: hsl(0, 0%, 64%);
+  --color-muted-light: hsl(0, 0%, 32%);
+  --color-muted-lighter: hsl(0, 0%, 64%);
 
   --color-primary: var(--indigo-9);
-  --color-secondary: var(--indigo-9);
+  --color-secondary: var(--pink-6);
   --color-tertiary: var(--blue-11);
 
   --font-xs: 0.75rem;
@@ -72,50 +74,11 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
+  overflow-x: hidden;
 }
 
 .tiptap {
   &:focus-visible {
     outline: none;
   }
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
-}
-
-[data-type='zettlekasten-link'] {
-  color: red !important;
 }
